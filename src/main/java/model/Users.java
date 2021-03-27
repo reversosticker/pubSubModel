@@ -35,7 +35,7 @@ public class Users {
     public String addUser(String userName,String userRole){
         User user = new User(userName,userRole);
         this.users.put(userName,user);
-        return "USER HAS ADDED INTO SYSTEM WITH NAME :: " +userName + "AND ROLE "+ userRole;
+        return "USER HAS ADDED INTO SYSTEM WITH NAME :: " +userName + " AND ROLE "+ userRole;
     }
 
     public String removeUser(String removeUserName,String adminUserName){
@@ -51,7 +51,7 @@ public class Users {
         }
     }
 
-    String subscribeTopicForUser(String userName,String topicName){
+    public String subscribeTopicForUser(String userName,String topicName){
 
         if(users.get(userName)!=null){
             User user = users.get(userName);

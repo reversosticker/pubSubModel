@@ -17,8 +17,8 @@ public class PUBSUB {
             System.out.println("3 for Subscribe Topic");
             System.out.println("4 for view subscribe topic");
             System.out.println("5 postEventBody");
-            System.out.println("remove User");
-            System.out.println("remove Topic");
+            System.out.println("6 remove User");
+            System.out.println("7 remove Topic");
 
             Scanner scanner = new Scanner(System.in);
             int opeation = scanner.nextInt();
@@ -30,16 +30,17 @@ public class PUBSUB {
                     System.out.println(Users.getInstance().addUser(userName,userRole));
                     break ;
                 case 2:
-                    System.out.println("Please enter userName and userRole");
+                    System.out.println("Please enter userName and topicName");
                     userName = scanner.next();
                     String topicName = scanner.next();
-                    System.out.println(Users.getInstance().);
+                    System.out.println(topics.addTopics(Users.getInstance().getUsers(),userName,topicName));
+
                     break;
                 case 3:
                     System.out.println("Please enter userName and  topicName to add");
                     userName = scanner.next();
                     topicName = scanner.next();
-                    System.out.println(topics.addTopics(Users.getInstance().getUsers(),userName,topicName));
+                    System.out.println(Users.getInstance().subscribeTopicForUser(userName,topicName));
 
                     break;
                 case 4:
@@ -48,7 +49,7 @@ public class PUBSUB {
                     Users.getInstance().viewSubscribeTopic(Notification.getInstnce(),userName);
                     break;
                 case 5:
-                    System.out.print("Please enter message body Note** message body is of json structure");
+                    System.out.println("Please enter message body Note** message body is of json structure");
                     String messageBody = scanner.next();
                     System.out.println(Notification.getInstnce().postEvent(messageBody));
                     break;
